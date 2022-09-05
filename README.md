@@ -1,24 +1,23 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a first time project using **Ruby on Rails**.  
+The objective is to have a blog accessible to any readers,
+but with a limited number of writers (mainly the owner).  
 
-Things you may want to cover:
+## Development
 
-* Ruby version
+### Getting the server started
 
-* System dependencies
+Use `bin/rails server`
 
-* Configuration
+### Creating a writer
 
-* Database creation
+Open up the Rails console using `bin/rails console`.  
 
-* Database initialization
+Then, create a new user following this template :  
+> new_user = User.new(email: "tester@email.com", username: "Tester", password: "testedpassword", admin: "true")
 
-* How to run the test suite
+Don't forget to save the changes using :
+> new_user.save!
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The `admin` argument allows you to decide if you want to give the user rights to create, edit and delete posts as well as deleting comments on a post.
