@@ -1,0 +1,97 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+body {
+    text-align: center;
+}
+
+/* Aligning Edit/Delete and Go Back links */
+
+.right-align {
+    text-align: right;
+}
+
+.right-align > a {
+    margin-left: 5px;
+}
+
+/* Fixing the alert box's position and animation */
+.alert {
+    opacity: 0%;
+    position:fixed;  /* this will cause alerts to not stack on top of each other */
+    transform: translateX(50vw) translateX(-50%) translateY(25%);
+    max-width: 85%;
+    animation: alert-fade 5s ease-in-out 200ms forwards;
+}
+
+@keyframes alert-fade {
+    0% {
+      opacity: 0%;
+    }
+    
+    15% {
+      opacity: 100%
+    }
+    
+    85% {
+      opacity: 100%
+    }
+    
+    100% {
+      opacity: 0%;
+    }
+}
+
+/* Styling the Comments on an article */
+
+.comment-box {
+    border: 2px;
+    border-style: outset;
+    border-radius: 5px;
+    padding: 0 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.comment-box blockquote {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Styling the "Add a comment" form */
+
+fieldset {
+    border-radius: 5px;
+    display: grid;
+    grid-template-rows: auto 2fr auto;
+    padding: 0.5rem 1.5rem;
+}
+
+legend {
+    font-size: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin: 0 auto;
+}
+
+fieldset input {
+    width: auto;
+}
+
+fieldset textarea {
+    width: 100%;
+    max-width: 100%;
+    resize: vertical;
+}

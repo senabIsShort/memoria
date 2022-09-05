@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Apollow's corner</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.css">
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <script src="https://kit.fontawesome.com/e5ed7da8f9.js" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+          <%= link_to "Home", root_path %>
+          <%= link_to "Articles", articles_path %>
+
+          <% if current_user %>
+            [<%= current_user.username %>]
+            <%= link_to "Log out", logout_path %>
+          <% else %>
+            <%= link_to "Login", login_path %>
+          <% end %>
+      </nav>
+      <h1>idkwhyimstillalive</h1>
+    </header>
+
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"
+           data-controller="removals"
+           data-action="animationend->removals#remove"
+      >
+        <%= value %>
+      </div>
+    <% end %>
+    <% flash.clear%>
+
+
+    <%= yield %>
+  </body>
+
+  <footer>
+    <%= link_to "Home", root_path %>
+  </footer>
+</html>

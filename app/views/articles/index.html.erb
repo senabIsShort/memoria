@@ -1,0 +1,18 @@
+<h1>Articles 📔</h1>
+
+<p> This blog has a whopping <%= Article.public_count %> articles and counting ! <br>
+It also happens to have <%= pluralize Comment.count, "supportive comment" %>, how wholesome !</p>
+
+<ul>
+  <% @articles.each do |article| %>
+    <% unless article.archived? %>
+      <li>
+        <%= link_to article.title, article %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+<% if allow?("articles", "create") %>
+  <%= link_to "New Article", new_article_path %>
+<% end %>

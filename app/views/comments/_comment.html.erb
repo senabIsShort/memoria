@@ -1,0 +1,17 @@
+<div class="comment-box">
+  <p>
+    <span class="fa-solid fa-user" title="Commented by"> :</span>
+    <%= comment.commenter %>
+  </p>
+  <blockquote>
+    <%= comment.body %>
+  </blockquote>
+  <p class="right-align">
+    <% if allow?("comments", "destroy") %>
+      <%= link_to "Destroy Comment", [comment.article, comment], data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+    <% end %>
+  </p>
+</div>

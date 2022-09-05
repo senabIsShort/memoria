@@ -1,0 +1,19 @@
+<%= form_with model: [ @article, @article.comments.build ] do |form| %>
+  <fieldset>
+    <legend>Add a comment</legend>
+    <div>
+      <span class="fa-solid fa-user"> </span>
+      <%= form.label :commenter, "Name" %><br>
+      <%= form.text_field :commenter %>
+    </div>
+    <div>
+      <span class="fa-regular fa-comment"> </span>
+      <%= form.label :body, "Message" %><br>
+      <%= form.text_area :body %>
+    </div>
+    <%= invisible_captcha %>
+    <div>
+      <%= form.submit %>
+    </div>
+  </fieldset>
+<% end %>
